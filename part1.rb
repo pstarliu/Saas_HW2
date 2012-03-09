@@ -21,18 +21,18 @@ class Numeric
 end
 
 module Enumerable
-
   def palindrome?
-    str = self.inject('') {|sum, i| sum + i.to_s}
-    normalized_str = str.gsub(/\W/, '').downcase
+    normalized_str = self.inject('') {|sum, i| sum + i.to_s}.gsub(/\W/, '').downcase
     return normalized_str == normalized_str.reverse
   end
 end
 
 class String
+
   def palindrome?
     return self.gsub(/\W/, '').downcase == self.gsub(/\W/, '').downcase.reverse
   end
+
 end
 
 p 5.dollars
