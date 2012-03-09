@@ -22,17 +22,16 @@ end
 
 module Enumerable
 
-  #def palindrome?
-   # normalized_str = self.each |i| {
-   # normalized_str = string.gsub(/\W/, '').downcase
-   # return normalized_str == normalized_str.reverse
-  #end
+  def palindrome?
+    str = self.inject('') {|sum, i| sum + i.to_s}
+    normalized_str = str.gsub(/\W/, '').downcase
+    return normalized_str == normalized_str.reverse
+  end
 end
 
 class String
   def palindrome?
-    normalized_str = self.gsub(/\W/, '').downcase
-    return normalized_str == normalized_str.reverse
+    return self.gsub(/\W/, '').downcase == self.gsub(/\W/, '').downcase.reverse
   end
 end
 
@@ -43,4 +42,4 @@ p 10.rupees.in(:euro)
 p "foo".palindrome?
 p "A man, a plan, a canal -- panama".palindrome?
 p "Madam, I'm Adam!".palindrome?
-#[1, 2, 3, 2, 1].palindrome?
+p [1, 2, 3, 2, 1].palindrome?
