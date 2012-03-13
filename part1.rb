@@ -22,7 +22,7 @@ end
 
 module Enumerable
   def palindrome?
-    normalized_str = self.inject('') {|sum, i| sum + i.to_s}.gsub(/\W/, '').downcase
+    normalized_str = self.to_a.inject('') {|sum, i| sum + i.to_s}.gsub(/\W/, '').downcase
     return normalized_str == normalized_str.reverse
   end
 end
@@ -43,3 +43,4 @@ p "foo".palindrome?
 p "A man, a plan, a canal -- panama".palindrome?
 p "Madam, I'm Adam!".palindrome?
 p [1, 2, 3, 2, 1].palindrome?
+p {"hello"=> "world"}.palindrome?
